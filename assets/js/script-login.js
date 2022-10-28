@@ -1,5 +1,5 @@
 // ES6+
-const validalogin = () =>{
+const validaLogin = () =>{
     // cria var email
     // let email = $('#email').val()
     // let senha = $('#senha').val()
@@ -18,4 +18,18 @@ const validalogin = () =>{
         method: 'POST',
         body: dados
     })
-}
+.then((response)=>response.json())
+.then((result)=>{
+   
+    if(result.retorno == 'erro'){
+        Swal.fire({
+            icon: 'error',
+            title: 'Atenção...',
+            text: 'Something went wrong!',
+            footer: result.mensagem
+          })
+    }else{
+        window.location = "admin/"
+    }
+})
+};
