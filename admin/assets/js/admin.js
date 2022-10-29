@@ -1,0 +1,3 @@
+const consultaCEP=()=>{}
+
+const  addProfessor = () => {}
