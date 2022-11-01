@@ -1,35 +1,27 @@
-// ES6+
-const validaLogin = () =>{
-    // cria var email
-    // let email = $('#email').val()
-    // let senha = $('#senha').val()
-
-    // cria um novo formulario de dados, capturando chave e valor do form
-    let dados = new FormData($('#form-login')[0])
-
-    // exibe mensagem no console do navegador
-    // usado para debug da aplicação
-    // verificação de erros
-    // console.log(`Email:`+email)
-    // console.log(`Senha:`+senha)
-
-    // request PHP
+const validaLogin = () => {
+    // Captura todo o formulário e ciar um formData
+    let dados = new FormData($("#form-login")[0]);
+  
+    // envio e recebimento de dados
     const result = fetch('backend/validaLogin.php',{
-        method: 'POST',
-        body: dados
+      method: 'POST',
+      body: dados
     })
-.then((response)=>response.json())
-.then((result)=>{
-   
-    if(result.retorno == 'erro'){
+    .then((response)=>response.json())
+    .then((result)=>{
+      // Aqui é tratado o retorno ao front
+
+      if(result.retorno == 'erro'){
         Swal.fire({
-            icon: 'error',
-            title: 'Atenção...',
-            text: 'Something went wrong!',
-            footer: result.mensagem
-          })
-    }else{
+          icon: 'error',
+          title: 'Atenção...',
+          text: result.mensagem
+        })
+      }else{
         window.location = "admin/"
-    }
-})
-};
+      }
+      
+      
+    })
+  };
+  // Final da função de add usuário
