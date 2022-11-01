@@ -35,7 +35,7 @@
               <a href="alunos.php"><i class="fa-solid fa-graduation-cap"></i> Alunos</a>
             </li>
             <li>
-              <a href="alinos.php"><i class="fa-solid fa-sheet-plastic"></i> Notas</a>
+              <a href="alunos.php"><i class="fa-solid fa-sheet-plastic"></i> Notas</a>
             </li>
           </ul>
         </nav>
