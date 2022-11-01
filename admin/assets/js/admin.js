@@ -50,4 +50,4 @@ const consultaCEP = () => {
         })
 }
 
-const addProfessor = () => { }
+const addProfessor = () => {}
