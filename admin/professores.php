@@ -1,19 +1,20 @@
 <?php
-    // controle de sessao
-    // iniciando a sessao
-    session_start();
-    
-    // se a var sessao email nao estiver setada o usuario sera redirecionado para o login
-    // somente e permitido acesso a essa pagina se a sessao foi iniciada
-    // apenas o usuario que fez login corretamente podera acessar esta pagina
-    if(!isset($_SESSION['email'])){
-        header('Location: ../');
-    }
+// controle de sessao
+// iniciando a sessao
+session_start();
+
+// se a var sessao email nao estiver setada o usuario sera redirecionado para o login
+// somente e permitido acesso a essa pagina se a sessao foi iniciada
+// apenas o usuario que fez login corretamente podera acessar esta pagina
+// if(!isset($_SESSION['email'])){
+//     header('Location: ../');
+// }
 
 ?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,6 +22,7 @@
     <link rel="stylesheet" href="assets/css/style-admin.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
+
 <body>
     <div class="container">
         <aside class="admin-menu">
@@ -28,16 +30,16 @@
             <nav>
                 <ul>
                     <li>
-                        <a href="index.php" class="menu-ativo"><i class="fa-solid fa-chart-line"></i> Dashboard</a>    
+                        <a href="index.php" class="menu-ativo"><i class="fa-solid fa-chart-line"></i> Dashboard</a>
                     </li>
                     <li>
-                        <a href="professores.php"><i class="fa-solid fa-chalkboard-user"></i> Professores</a>                        
+                        <a href="professores.php"><i class="fa-solid fa-chalkboard-user"></i> Professores</a>
                     </li>
                     <li>
-                        <a href="alunos.php"><i class="fa-solid fa-graduation-cap"></i> Alunos</a>                        
+                        <a href="alunos.php"><i class="fa-solid fa-graduation-cap"></i> Alunos</a>
                     </li>
                     <li>
-                        <a href="notas.php"><i class="fa-solid fa-file-circle-check"></i> Notas</a>                        
+                        <a href="notas.php"><i class="fa-solid fa-file-circle-check"></i> Notas</a>
                     </li>
                     <hr>
                     <li>
@@ -76,6 +78,16 @@
                             <input type="text" name="cpf" id="cpf">
                         </div>
                         <div>
+                            <label for="data_nascimento">Data Nascimento</label>
+                                <input type="date" name="data_nascimento" id="data_nascimento">
+                        </div>
+                        <div>
+                            <label for="tipo">Tipo</label>
+                            <select name="tipo" id="tipo">
+                                <option value="" disable selected>Selecione...</option>
+                            </select>
+                        </div>
+                        <div>
                             <label for="cep">CEP</label>
                             <div>
                                 <input class="input-cep" type="text" name="cep" id="cep">
@@ -108,11 +120,11 @@
                         </div>
                     </div>
 
-                    <button class="btn-cadastrar" type="button" onclick="addProfessor()">Cadastrar</button>
+                    <button class="btn-cadastrar" type="button" onclick="addUsuarios()">Cadastrar</button>
 
 
-                   
-                    
+
+
 
 
 
@@ -121,9 +133,10 @@
             </div>
 
 
-            
+
         </main>
-    </div>    
+    </div>
     <script src="assets/js/script-admin.js"></script>
 </body>
+
 </html>

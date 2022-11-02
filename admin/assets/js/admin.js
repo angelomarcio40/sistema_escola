@@ -3,6 +3,9 @@ $(document).ready(function () {
     $('#cpf').inputmask('999.999.999-99')
     $('#telefone').inputmask('(99)99999-9999')
     $('#cep').inputmask('99999-999')
+
+    // executa a função listaTipo()
+    listaTipo()
 });
 
 
@@ -14,7 +17,7 @@ const consultaCEP = () => {
     cep = cep.replaceAll("_", "").replaceAll("_", "")
 
     // verifica se o CEP foi preenchido com todos os numeros
-    if (cep.length < 9) {
+    if (cep.length < 8) {
         Swal.fire({
             icon: 'error',
             title: 'Atenção...',
@@ -50,4 +53,36 @@ const consultaCEP = () => {
         })
 }
 
-const addProfessor = () => {}
+const listaTipo = () =>{
+    // função que lista os tipos para cadastro
+    // dados da tabela tb_tipos
+    const result = fetch('../backend/listaTipo.php')
+    .then((response)=>response.json())
+    .then((result)=>{
+        // aqui sera o retorno dos dados do backend
+        // monta no select os options com os tipo da da tabela
+
+        result.map((tipo)=>{
+            $('#tipo').append(
+                `
+            <option value="${tipo.id}">${tipo.tipo}</option>
+            `
+            )
+        })
+    })
+}
+
+const addUsuarios = () => {
+
+    let dados = new FormData($('form--professores'))
+
+    const result = fetch('../backend/addUsuarios.php',{
+        method: 'POST',
+        body:dados
+    })
+    .then((response)=>response.json())
+    .then((result)=>{
+        // aqui tratamos o retorno do backend
+    })
+
+};

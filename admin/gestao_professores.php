@@ -71,6 +71,10 @@
                 <input type="text" name="cpf" id="cpf">
             </div>
             <div>
+                <label for="data_nascimento">Data Nascimento</label>
+                <input type="date" name="data_nascimento" id="data_nascimento">
+            </div>
+            <div>
                 <label for="cep">CEP</label>
                 <input type="text" name="cep" id="cep">
                 <button type="button"><i class="fa-solid fa-magnifying-glass"></i></button>
