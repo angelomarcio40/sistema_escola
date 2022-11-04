@@ -1,4 +1,3 @@
-// A $( document ).ready() block.
 $(document).ready(function () {
     $('#cpf').inputmask('999.999.999-99')
     $('#telefone').inputmask('(99)99999-9999')
@@ -74,7 +73,7 @@ const listaTipo = () =>{
 
 const addUsuarios = () => {
 
-    let dados = new FormData($('form--professores'))
+    let dados = new FormData($('#form-professores')[0])
 
     const result = fetch('../backend/addUsuarios.php',{
         method: 'POST',
