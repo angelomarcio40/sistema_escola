@@ -83,13 +83,20 @@ const addUsuarios = () => {
     .then((result)=>{
         // aqui tratamos o retorno do backend
         if(result.retorno == 'ok'){
-            Sawl.fire({
+            Swal.fire({
                 icon: "sucess",
                 title: "Sucesso!",
                 text: result.mensagem,
             });
 
             result.retorno == 'ok' ? $('#form-professores')[0].reset(): ''
+        }else{
+            Swal.fire({
+                icon: "error",
+                title: "Atenção!",
+                text: result.mensagem,
+            });
+
         }
     })
 
