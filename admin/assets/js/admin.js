@@ -63,7 +63,7 @@ const listaTipo = () =>{
 
         result.map((tipo)=>{
             $('#tipo').append(
-                `
+            `
             <option value="${tipo.id}">${tipo.tipo}</option>
             `
             )

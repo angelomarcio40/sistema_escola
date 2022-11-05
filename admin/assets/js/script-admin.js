@@ -91,3 +91,48 @@ const addUsuarios = () => {
 
 };
 
+// Função que exibe a aba cadastro e ocluta a aba listagem
+const abaCadastro=()=>{
+  // Oculta a div de listagem
+  $('#div-listagem').hide()
+
+  // Mostra a div de cadastro
+  $('#form-professores').show()
+}
+
+// Função que exibe a aba listagem e oculta a aba cadastro
+const abaListagem=()=>{
+  // esconde form professores
+  $('#form-professores').hide()
+
+  // Exibe a div de listagem
+  $('#div-listagem').show()
+}
+
+const pesquisarUsuario = () =>{
+
+  // validação de campo pesquisar vazio
+  let pesquisar = $('#pesquisar').val()
+
+  if(pesquisar == ''){
+    Swal.fire({
+      icon: 'error',
+      title: 'Atenção!',
+      text: 'Digite um nome ou CPF para pesquisar!',
+    })
+    return
+  }
+
+  dados = new FormData($('#form-listagem')[0])
+
+  result = fetch('../backend/pesquisarUsuario.php',{
+    method: 'POST',
+    body: dados
+  })
+  .then((response)=>response.json())
+  .then((result)=>{
+    // aqui iremos exibir os dados encontrados na pesquisa na tela
+
+  })
+
+}

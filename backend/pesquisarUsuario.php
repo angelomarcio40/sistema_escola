@@ -3,7 +3,9 @@
 
 try {
 
-    $sql = "SELECT id,tipo FROM tb_tipo WHERE ativo = 1";
+    $PESQUISA = $_post['pesquisar'];
+
+    $sql = "SELECT * FROM tb_usuarios WHERE nome LIKE '%$pesquisar%' OR cpf LIKE '%$pesquisar%' ";
 
     $comando = $con->prepare($sql);
 

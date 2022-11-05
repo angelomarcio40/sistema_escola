@@ -1,25 +1,27 @@
 <?php
-    // controle de sessao
-    // iniciando a sessao
-    // session_start();
-    
-    // se a var sessao email nao estiver setada o usuario sera redirecionado para o login
-    // somente e permitido acesso a essa pagina se a sessao foi iniciada
-    // apenas o usuario que fez login corretamente podera acessar esta pagina
-    // if(!isset($_SESSION['email'])){
-    //     header('Location: ../');
-    // }
+// controle de sessao
+// iniciando a sessao
+// session_start();
+
+// se a var sessao email nao estiver setada o usuario sera redirecionado para o login
+// somente e permitido acesso a essa pagina se a sessao foi iniciada
+// apenas o usuario que fez login corretamente podera acessar esta pagina
+// if(!isset($_SESSION['email'])){
+//     header('Location: ../');
+// }
 
 ?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin - Sistema Escola</title>
     <link rel="stylesheet" href="assets/css/style-admin.css">
 </head>
+
 <body>
     <div class="container">
         <aside class="admin-menu">
@@ -27,16 +29,16 @@
             <nav>
                 <ul>
                     <li>
-                        <a href="index.php" class="menu-ativo"><i class="fa-solid fa-chart-line"></i> Dashboard</a>    
+                        <a href="index.php" class="menu-ativo"><i class="fa-solid fa-chart-line"></i> Dashboard</a>
                     </li>
                     <li>
-                        <a href="professores.php"><i class="fa-solid fa-chalkboard-user"></i> Professores</a>                        
+                        <a href="professores.php"><i class="fa-solid fa-chalkboard-user"></i> Professores</a>
                     </li>
                     <li>
-                        <a href="alunos.php"><i class="fa-solid fa-graduation-cap"></i> Alunos</a>                        
+                        <a href="alunos.php"><i class="fa-solid fa-graduation-cap"></i> Alunos</a>
                     </li>
                     <li>
-                        <a href="notas.php"><i class="fa-solid fa-file-circle-check"></i> Notas</a>                        
+                        <a href="notas.php"><i class="fa-solid fa-file-circle-check"></i> Notas</a>
                     </li>
                     <hr>
                     <li>
@@ -54,17 +56,17 @@
         </aside>
         <!-- aqui será o conteudo da pagina -->
         <main class="admin-corpo">
-            
+
             <div class="div-professores">
                 <div class="tabs">
-                    <div class="titulo-principal tab-ativo">
+                    <div class="titulo-principal tab-ativo" onclick="abaCadastro()">
                         <p class="titulo-texto">Cadastro de Usuários</p>
                     </div>
-                    <div class="titulo-principal">
+                    <div class="titulo-principal" onclick="abaListagem()">
                         <p class="titulo-texto">Listagem</p>
                     </div>
                 </div>
-            
+
                 <form id="form-professores">
                     <div class="grid-professores">
                         <div>
@@ -91,11 +93,11 @@
                         <div>
                             <label for="tipo">Tipo</label>
                             <select name="tipo" id="tipo">
-                                <option value="" disabled selected>Selecione...</option>        
+                                <option value="" disabled selected>Selecione...</option>
                             </select>
                         </div>
-                        
-                        
+
+
                         <div>
                             <label for="cep">CEP</label>
                             <div class="div-cep">
@@ -127,7 +129,7 @@
                                 <option value="SP">SP</option>
                                 <option value="RJ">RJ</option>
                                 <option value="MG">MG</option>
-                            </select>    
+                            </select>
 
 
                         </div>
@@ -140,20 +142,41 @@
                     <button class="btn-cadastrar" type="button" onclick="addUsuarios()">Cadastrar</button>
 
 
-                   
-                    
+
+
 
 
 
                 </form>
 
+                <div id="div-listagem">
+                    <h4>Listasgem de usuários</h4>
+
+                    <form id="form-listagem">
+                        <div>
+                            <label for="">Pesquisar usuários</label>
+                            <div class="div-cep">
+                                <input class="input-cep" type="text" name="pesquisar" id="pesquisar">
+                                <button class="btn-cep" type="button" onclick="pesquisarUsuario()">
+                                    <i class="fa-solid fa-magnifying-glass"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+
+                    <div id="resultado-listagem">
+                        
+
+                    </div>
+                </div>
+
             </div>
 
 
-            
+
         </main>
     </div>
-    
+
     <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
 
     <script src="assets/js/jquery.inputmask.min.js"></script>
@@ -166,4 +189,5 @@
 
     <script src="assets/js/script-admin.js"></script>
 </body>
+
 </html>
