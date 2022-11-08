@@ -12,50 +12,19 @@
 
 ?>
 
-<!DOCTYPE html>
-<html lang="pt-br">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin - Sistema Escola</title>
-    <link rel="stylesheet" href="assets/css/style-admin.css">
-</head>
-
-<body>
-    <div class="container">
-        <aside class="admin-menu">
-            <div class="admin-logo">Sistema - ADMIN</div>
-            <nav>
-                <ul>
-                    <li>
-                        <a href="index.php" class="menu-ativo"><i class="fa-solid fa-chart-line"></i> Dashboard</a>
-                    </li>
-                    <li>
-                        <a href="professores.php"><i class="fa-solid fa-chalkboard-user"></i> Professores</a>
-                    </li>
-                    <li>
-                        <a href="alunos.php"><i class="fa-solid fa-graduation-cap"></i> Alunos</a>
-                    </li>
-                    <li>
-                        <a href="notas.php"><i class="fa-solid fa-file-circle-check"></i> Notas</a>
-                    </li>
-                    <hr>
-                    <li>
-                        <a href="../backend/logout.php">
-                            <i class="fa-solid fa-power-off"></i> Logout
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-            <!-- <div class="admin-logout">
-                
-            </div> -->
-
-
-        </aside>
+<!-- Header -->
+<?php
+    include 'include/head.php';
+?>
+<!-- Fim header -->
+        <!-- Aside -->
+        <?php 
+            include 'include/aside.php'
+        ?>
+        <!-- Fim Aside -->
         <!-- aqui será o conteudo da pagina -->
         <main class="admin-corpo">
+            <h2>Dashboard</h2>
 
             <div class="div-professores">
                 <div class="tabs">
@@ -165,30 +134,18 @@
                     </form>
 
                     <div id="resultado-listagem">
-                       
-                        </div>
 
                     </div>
-                </div>
 
+                </div>
             </div>
 
-
-
-        </main>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
-
-    <script src="assets/js/jquery.inputmask.min.js"></script>
-
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 
-    <script src="https://kit.fontawesome.com/d1a9a58100.js" crossorigin="anonymous"></script>
-
-
-    <script src="assets/js/script-admin.js"></script>
-</body>
-
-</html>
+    </main>
+    
+    <?php
+        include 'include/footer.php'
+    ?>
