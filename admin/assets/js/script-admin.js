@@ -13,10 +13,10 @@ const consultaCEP = () => {
   // captura o valor do cep via JQUERY
   let cep = $("#cep").val();
 
- //replace para tirar o _ e - da mascara   
+  //replace para tirar o _ e - da mascara   
   cep = cep.replaceAll("_", "").replaceAll("-", "")
 
-//verifica se o CEP foi preenchido com todos os numeros   
+  //verifica se o CEP foi preenchido com todos os numeros   
   if (cep.length < 8) {
     Swal.fire({
       icon: "error",
@@ -47,32 +47,32 @@ const consultaCEP = () => {
 
 
         // coloca o focus do usuário no campo numero
-        $("#numero").prop('disabled',false).focus();
+        $("#numero").prop('disabled', false).focus();
       }
     });
 };
 
-const listaTipo = () =>{
+const listaTipo = () => {
   // funcao que lista os tipos para o cadastro
   // dados da tabela tb_tipos
   const result = fetch('../backend/listaTipo.php')
-  .then((response)=>response.json())
-  .then((result)=>{
-    // aqui sera o retorno dos dados do backend
-    // monta no select os options com os tipos da tabela
+    .then((response) => response.json())
+    .then((result) => {
+      // aqui sera o retorno dos dados do backend
+      // monta no select os options com os tipos da tabela
 
-    result.map((tipo)=>{
-      $('#tipo').append(
-        `
+      result.map((tipo) => {
+        $('#tipo').append(
+          `
           <option value="${tipo.id}">${tipo.tipo}</option>
         `
         )
+      })
+
+
+
+
     })
-
-    
-
-
-  })
 
 }
 
@@ -80,19 +80,19 @@ const addUsuarios = () => {
 
   let dados = new FormData($('#form-professores')[0])
 
-  const result = fetch('../backend/addUsuarios.php',{
+  const result = fetch('../backend/addUsuarios.php', {
     method: 'POST',
-    body:dados
+    body: dados
   })
-  .then((response)=>response.json())
-  .then((result)=>{
-    // aqui tratamos o retorno do backend
-  })
+    .then((response) => response.json())
+    .then((result) => {
+      // aqui tratamos o retorno do backend
+    })
 
 };
 
 // Função que exibe a aba cadastro e ocluta a aba listagem
-const abaCadastro=()=>{
+const abaCadastro = () => {
   // Oculta a div de listagem
   $('#div-listagem').hide()
 
@@ -101,7 +101,7 @@ const abaCadastro=()=>{
 }
 
 // Função que exibe a aba listagem e oculta a aba cadastro
-const abaListagem=()=>{
+const abaListagem = () => {
   // esconde form professores
   $('#form-professores').hide()
 
@@ -109,12 +109,12 @@ const abaListagem=()=>{
   $('#div-listagem').show()
 }
 
-const pesquisarUsuario = () =>{
+const pesquisarUsuario = () => {
 
   // validação de campo pesquisar vazio
   let pesquisar = $('#pesquisar').val()
 
-  if(pesquisar == ''){
+  if (pesquisar == '') {
     Swal.fire({
       icon: 'error',
       title: 'Atenção!',
@@ -125,14 +125,55 @@ const pesquisarUsuario = () =>{
 
   dados = new FormData($('#form-listagem')[0])
 
-  result = fetch('../backend/pesquisarUsuario.php',{
+  result = fetch('../backend/pesquisarUsuario.php', {
     method: 'POST',
     body: dados
   })
-  .then((response)=>response.json())
-  .then((result)=>{
-    // aqui iremos exibir os dados encontrados na pesquisa na tela
+    .then((response) => response.json())
+    .then((result) => {
+      // aqui iremos exibir os dados encontrados na pesquisa na tela
+      $('#resultado-listagem').html(`
+      <div id="tabela-listagem">
+      <table>
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>E-mail</th>
+            <th>Telefone</th>
+            <th>CPF</th>
+            <th>Ações</th>    
+        </thead>
+      
+      <tbody id="dados-tabela-listagem">
+       
+      </tbody>
+      </table>
+      </div>
+      
+    `)
 
-  })
+      if (result.length == 0) {
+        $('#dados-tabela-listagem').append(`
+      <tr>
+        <td colspan="5">Nenhum dado foi encontrado!</td>
+      </tr>
+      `)
+      } else {
+        result.map((usuario) => {
+          $('#dados-tabela-listagem').append(`
+        <tr>
+          <td>${usuario.nome}</td>
+          <td>${usuario.email}</td>
+          <td>${usuario.telefone}</td>
+          <td>${usuario.cpf}</td>
+          <td>
+              <button class="btn-visualizar">Visualizar</button>
+          </td>
+        </tr>
+    `)
+        })
+
+      }
+    })
 
 }

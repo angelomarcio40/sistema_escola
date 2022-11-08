@@ -127,7 +127,7 @@ nav ul li a:hover{
 
 .btn-cep{
     padding: 6px 10px;
-    background-color: #4ea5df;
+    background-color: #0c9a53;
     border: none;
     cursor: pointer;
     filter: brightness(1.2);
@@ -178,6 +178,40 @@ nav ul li a:hover{
 #div-listagem{
     /* oculta a div */
     display: none;
+}
+
+#tabela-listagem table {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 15px;
+}
+
+#tabela-listagem tabl td, #tabela-listagem table th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#tabela-listagem table tr:nth-child(even){background-color: #2f2f2f;}
+
+#tabela-listagem table tr:hover {background-color: #ddd;}
+
+#tabela-listagem table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #0c9a53;
+    color: #FFF;
+}
+
+.btn-visualizar{
+    cursor: pointer;
+    padding: 6px 12px;
+    background-color: #034725;
+    border: none;
+    border-radius: 4px;
+    color: #FFF;
+    font-weight: bold;
 }
 
 /* tabs */

@@ -3,7 +3,7 @@
 
 try {
 
-    $PESQUISA = $_post['pesquisar'];
+    $pesquisar = $_POST['pesquisar'];
 
     $sql = "SELECT * FROM tb_usuarios WHERE nome LIKE '%$pesquisar%' OR cpf LIKE '%$pesquisar%' ";
 
