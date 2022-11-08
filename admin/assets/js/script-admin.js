@@ -91,13 +91,24 @@ const addUsuarios = () => {
 
 };
 
-// Função que exibe a aba cadastro e ocluta a aba listagem
+// Função que exibe a aba cadastro e oclulta a aba listagem
 const abaCadastro = () => {
   // Oculta a div de listagem
   $('#div-listagem').hide()
 
   // Mostra a div de cadastro
   $('#form-professores').show()
+
+  const abaCadastro=()=>{
+
+    $('#div-listagem').hide()
+
+    $('#form-professores').show()
+
+    $('aba-listagem').removeClass('tab-ativo')
+
+    $('aba-cadastro').addClass('tab-ativo')
+  }
 }
 
 // Função que exibe a aba listagem e oculta a aba cadastro
@@ -107,6 +118,10 @@ const abaListagem = () => {
 
   // Exibe a div de listagem
   $('#div-listagem').show()
+
+  $('aba-cadastro').removeClass('tab-ativo')
+
+  $('aba-listagem').addClass('tab-ativo')
 }
 
 const pesquisarUsuario = () => {
